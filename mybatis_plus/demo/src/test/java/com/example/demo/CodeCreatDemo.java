@@ -3,7 +3,6 @@ package com.example.demo;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
@@ -25,7 +24,7 @@ public class CodeCreatDemo {
         config.setOutputDir(projiectpath+"/src/main/java");
         config.setAuthor("李司繁");
         config.setOpen(false);
-        config.setFileOverride(false);//是否覆盖
+        config.setFileOverride(true);//是否覆盖
         config.setServiceName("%sService");//去Service的I前缀
         config.setIdType(IdType.ID_WORKER);//id生成策略
         config.setDateType(DateType.ONLY_DATE);//日期类型
@@ -58,10 +57,10 @@ public class CodeCreatDemo {
         ArrayList<TableFill> tableFills = new ArrayList<>();
         tableFills.add(autoGenerator_create);
         tableFills.add(modify);
-
+        //.setSuperEntityClass("你自己的父类实体")
         strategyConfig.setNaming(NamingStrategy.underline_to_camel)
                 .setColumnNaming(NamingStrategy.underline_to_camel)
-                .setSuperEntityClass("你自己的父类实体")
+
                 .setEntityLombokModel(true)
                 .setLogicDeleteFieldName("deleted")
                 .setTableFillList(tableFills)
